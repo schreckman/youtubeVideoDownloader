@@ -42,7 +42,7 @@ def downloadMP3(link: str) -> bool:
     video = video.streams.get_audio_only()
     try:
         downloads_dir = getDownloadsPath()
-        output_file = video.download(output_path=downloads_dir)
+        output_file = video.download(output_path=downloads_dir, skip_existing=True)
         base, ext = os.path.splitext(output_file)
         new_file = base + ".mp3"
         os.rename(output_file, new_file)
@@ -52,19 +52,20 @@ def downloadMP3(link: str) -> bool:
     return True
 
 
-def downloadMP4(link: str) -> bool:
+def downloadMP4(link: str, quality="720p") -> bool:
     """
     This will download a youtube video as a MP4 file
     The file will be stored in the Downloads directory
 
+    :param quality: optional parameter for the quality of the video
     :param link: link to the youtube video MP4
     :return: True if the video was successfully downloaded, False if not
     """
     video = YouTube(link)
-    video = video.streams.get_highest_resolution()
+    video = video.streams.get_by_resolution(quality)
     try:
         downloads_dir = getDownloadsPath()
-        video.download(output_path=downloads_dir)
+        video.download(output_path=downloads_dir, skip_existing=True)
     except:
         print("Error occurred while downloading the MP3")
         exit(-1)

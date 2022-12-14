@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-09 22:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: german\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Downloader"
+msgstr "Downloader"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "About"
+msgstr "About"
+
+msgid "Parse the video link here: "
+msgstr "Hier den Link einfügen: "
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Current Link: "
+msgstr "Aktueller Link: "
+
+msgid "Insert link"
+msgstr "Link einfügen"
+
+msgid "MP3 or MP4? "
+msgstr "MP3 oder MP4? "
+
+msgid "starting the download ..."
+msgstr "Download gestartet ..."
+
+msgid "Successfully downloaded the MP3 video"
+msgstr "Das MP3 Video wurde erfolgreich heruntergeladen"
+
+msgid "Successfully downloaded the MP4 video"
+msgstr "Das MP4 Video wurde erfolgreich heruntergeladen"
+
+msgid "Appearance Mode:"
+msgstr "Aussehens Modus:"
+
+msgid "Choose Language:"
+msgstr "Wähle eine Sprache:"
+
+msgid "english"
+msgstr "englisch"
+
+msgid "german"
+msgstr "deutsch"
+
+msgid "MP3"
+msgstr "MP3"
+
+msgid "MP4"
+msgstr "MP4"
+
+msgid "Download MP3"
+msgstr "Download MP3"
+
+msgid "Download MP4"
+msgstr "Download MP4"
+
+msgid "Video Quality"
+msgstr "Video Qualität"
