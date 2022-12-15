@@ -76,3 +76,9 @@ msgstr "Download MP4"
 
 msgid "Video Quality"
 msgstr "Video Quality"
+
+msgid "lowest"
+msgstr "lowest"
+
+msgid "highest"
+msgstr "highest"

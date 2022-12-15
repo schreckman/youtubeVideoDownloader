@@ -62,10 +62,18 @@ def downloadMP4(link: str, quality="720p") -> bool:
     :return: True if the video was successfully downloaded, False if not
     """
     video = YouTube(link)
-    video = video.streams.get_by_resolution(quality)
+    # video = video.streams.get_by_resolution(quality)
+
     try:
         downloads_dir = getDownloadsPath()
-        video.download(output_path=downloads_dir, skip_existing=True)
+        if quality == "highest":
+            video = video.streams.get_highest_resolution()
+            video.download(output_path=downloads_dir, skip_existing=True)
+        elif quality == "lowest":
+            video = video.streams.get_lowest_resolution()
+            video.download(output_path=downloads_dir, skip_existing=True)
+        else:
+            video = video.streams.filter(res=quality).first().download(output_path=downloads_dir, skip_existing=True)
     except:
         print("Error occurred while downloading the MP3")
         exit(-1)

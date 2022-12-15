@@ -68,13 +68,13 @@ class App(tk.CTk):
         self.appearance_mode_optionmenu.set("System")
 
         self.optionmenu_Settings1 = tk.CTkOptionMenu(self.tabview.tab(_("Settings")),
-                                                    values=["144p", "240p", "360p", "480p", "720p"],
+                                                    values=[_("lowest"), "720p", _("highest")],
                                                     command=self.change_video_quality_event)
         self.optionmenu_Settings1.grid(row=7, column=0, padx=20, pady=(10, 10))
         self.optionmenu_Settings1.set(_("Video Quality"))
 
     def download_MP3_event(self):
-        if self.link.__contains__("youtube"):
+        if self.link.__contains__("youtube") or self.link.__contains__("youtu.be"):
             print("called MP3")
             start = time.perf_counter()
             success = downloader.downloadMP3(self.link)
@@ -84,9 +84,13 @@ class App(tk.CTk):
                 print(f"The download the video in {stop - start:0.4f} seconds")
 
     def download_MP4_event(self):
-        if self.link.__contains__("youtube"):
+        if self.link.__contains__("youtube") or self.link.__contains__("youtu.be"):
             print("called MP4")
             start = time.perf_counter()
+            if self.quality == _("lowest"):
+                self.quality = "lowest"
+            if self.quality == _("highest"):
+                self.quality = "highest"
             success = downloader.downloadMP4(self.link, quality=self.quality)
             if success:
                 stop = time.perf_counter()

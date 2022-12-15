@@ -26,7 +26,7 @@ if __name__ == '__main__':
     elif format.lower() == "mp4":
         print(_("starting the download ..."))
         start = time.perf_counter()
-        success = downloader.downloadMP4(link)
+        success = downloader.downloadMP4(link, quality="highest")
         if success:
             stop = time.perf_counter()
             print(_("Successfully downloaded the MP4 video"))
