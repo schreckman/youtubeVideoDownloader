@@ -1,3 +1,4 @@
+import locale
 import customtkinter as tk
 import gettext
 import os
@@ -7,8 +8,7 @@ from src import downloader
 tk.set_appearance_mode("System")
 tk.set_default_color_theme("blue")
 
-LOCALE = os.getenv('LANG', 'de-DE')
-_ = gettext.translation('messages', localedir='i18n', languages=[LOCALE]).gettext
+_ = gettext.translation('messages', localedir='i18n', languages=locale.getlocale()).gettext
 
 
 class App(tk.CTk):
@@ -68,10 +68,16 @@ class App(tk.CTk):
         self.appearance_mode_optionmenu.set("System")
 
         self.optionmenu_Settings1 = tk.CTkOptionMenu(self.tabview.tab(_("Settings")),
-                                                    values=[_("lowest"), "720p", _("highest")],
-                                                    command=self.change_video_quality_event)
+                                                     values=[_("lowest"), "720p", _("highest")],
+                                                     command=self.change_video_quality_event)
         self.optionmenu_Settings1.grid(row=7, column=0, padx=20, pady=(10, 10))
         self.optionmenu_Settings1.set(_("Video Quality"))
+
+        self.optionmenu_Settings1 = tk.CTkOptionMenu(self.tabview.tab(_("Settings")),
+                                                     values=[_("english"), _("german")],
+                                                     command=self.change_language_event)
+        self.optionmenu_Settings1.grid(row=8, column=0, padx=20, pady=(10, 10))
+        self.optionmenu_Settings1.set(_("english"))
 
     def download_MP3_event(self):
         if self.link.__contains__("youtube") or self.link.__contains__("youtu.be"):
@@ -113,3 +119,18 @@ class App(tk.CTk):
 
     def change_video_quality_event(self, quality: str):
         self.quality = quality
+
+    def change_language_event(self, language: str):
+        self.language = language
+        if self.language == "german":
+            locale.setlocale(locale.LC_ALL, 'de_DE.UTF-8')
+            print("changed language into german")
+        if self.language == "english":
+            print("changed language into english")
+            locale.setlocale(locale.LC_ALL, 'en-US.UTF-8')
+
+        print(locale.getlocale())
+        print(self.language)
+        lang = gettext.translation('messages', localedir='i18n', languages=locale.getlocale())
+        lang.install()
+        _ = lang.gettext
