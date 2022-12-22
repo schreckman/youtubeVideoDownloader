@@ -85,3 +85,6 @@ msgstr "niedrigste"
 
 msgid "highest"
 msgstr "höchste"
+
+msgid "Which quality: lowest/720p/highest"
+msgstr "Welche Qualität: lowest/720p/highest"
