@@ -1,3 +1,4 @@
+import locale
 import time
 from src import downloader
 import gettext
@@ -7,8 +8,9 @@ import os
 # msgfmt -o i18n/de/LC_MESSAGES/messages.mo i18n/de/LC_MESSAGES/messages.po
 # msgfmt -o i18n/en/LC_MESSAGES/messages.mo i18n/en/LC_MESSAGES/messages.po
 
-LOCALE = os.getenv('LANG', 'de-DE')
-_ = gettext.translation('messages', localedir='i18n', languages=[LOCALE]).gettext
+current_locale = locale.getlocale()
+
+_ = gettext.translation('messages', localedir='i18n', languages=current_locale).gettext
 
 if __name__ == '__main__':
     link = input(_("Parse the video link here: "))
