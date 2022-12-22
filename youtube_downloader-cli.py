@@ -25,7 +25,7 @@ if __name__ == '__main__':
             print(f"The download the video in {stop - start:0.4f} seconds")
 
     elif format.lower() == "mp4":
-        quality = input(_("Which quality: lowest/720p/highest"))
+        quality = input(_("Which quality: lowest/720p/highest: "))
         if not quality.__contains__("lowest") or quality.__contains__("720p") or quality.__contains__("highest"):
             quality = "720p"
         print(_("starting the download ..."))
